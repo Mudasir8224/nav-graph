@@ -12,6 +12,9 @@ import com.example.navigationgraph.databinding.FragmentNotificationBinding
 class NotificationFragment : Fragment() {
     private var _binding: FragmentNotificationBinding? = null
     private val binding get() = _binding!!
+    private lateinit var textView: TextView
+
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -22,7 +25,7 @@ class NotificationFragment : Fragment() {
         _binding = FragmentNotificationBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        val textView: TextView = binding.textNotification
+         textView = binding.textNotification
 
         notificationViewModel.text.observe(viewLifecycleOwner) {
             textView.text = it
